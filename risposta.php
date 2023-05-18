@@ -1,7 +1,9 @@
 <?php 
     $testo = $_POST['testoToBan'];
     $parola = $_POST['parolaBan'];
+    $parolaColorata = '<span style="color : red">'. $parola . '</span>';
     $TextLenght = strlen($testo);
+    $testoColorato = str_replace($parola, $parolaColorata, $testo);
     $TextBan = str_replace($parola, '***', $testo);
     $TextLenghtBan = strlen($TextBan);
 
@@ -16,12 +18,15 @@
     <title>risposta</title>
 </head>
 <body>
+    <h1>
+        vuoi eliminare : <?php echo $parola ?>
+    </h1>
     <h3>
         Hai digitato : <?php echo $TextLenght ?> caratteri 
     </h3>
     <p>
         il tuo testo era : <br>
-        "<?php echo $testo ?>"
+        "<?php echo $testoColorato ?>"
     </p>
     <h3>
         il testo bandito è: <br>
